@@ -10,6 +10,14 @@ class ComportamientoJugador : public Comportamiento{
     ComportamientoJugador(unsigned int size) : Comportamiento(size){
       // Constructor de la clase
       // Dar el valor inicial a las variables de estado
+      fil = col = 99;
+      brujula = 0;
+      NUM_CASILLAS_VISTA = 16;
+      MAX_CASILLAS_MAPA = 99;
+      MIN_CASILLAS_MAPA = 0;
+      ultimaAccion = actIDLE;
+      girar_derecha = false;
+      bien_situado = false;
     }
 
     ComportamientoJugador(const ComportamientoJugador & comport) : Comportamiento(comport){}
@@ -21,6 +29,13 @@ class ComportamientoJugador : public Comportamiento{
   private:
   
   // Declarar aquí las variables de estado
+  int fil, col, brujula, NUM_CASILLAS_VISTA, MAX_CASILLAS_MAPA, MIN_CASILLAS_MAPA;
+
+  Action ultimaAccion;
+  
+  bool girar_derecha, bien_situado;
+
+  void getAnchuraProfundidad(int & anchura, int & profundidad, int i);
 
 };
 
